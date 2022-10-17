@@ -24,6 +24,16 @@ else()
 	project(SRT VERSION ${SRT_VERSION} LANGUAGES C CXX)
 endif()
 
+set(CPACK_PACKAGE_NAME "muxable-libsrt")
+set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "arm64")
+set(CPACK_PACKAGE_ARCHITECTURE "arm64")
+set(CPACK_PACKAGE_VERSION ${SRT_VERSION})
+set(CPACK_PACKAGE_CONTACT "Kevin Wang <kevin@muxable.com>")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "openssl")
+set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+
+include(CPack)
+
 include(FindPkgConfig)
 # XXX See 'if (MINGW)' condition below, may need fixing.
 include(FindThreads)
